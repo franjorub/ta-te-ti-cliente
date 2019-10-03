@@ -9,21 +9,18 @@ export default class Chip extends Component {
     }
 
     render() {
-        const { row, column, isSelected } = this.props;
+        const { row, column, isSelected, type } = this.props;
+        const color = type === 'O' ? 'green' : 'red';
         return (
             <div 
-                style={{
-                    width: '50%',
-                    height: '50%',
-                    borderRadius: '50%',
-                    backgroundColor: isSelected ? 'blue' : 'green',
+                style={{                    
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}
                 onClick={this.handleSelect}
             >
-                <p style={{ color: 'white' }}>{`${row},${column}`}</p>
+                <p style={{ color: isSelected ? 'blue' : color, fontSize: '20px' }}>{`${type}`}</p>
             </div>
             
         )
